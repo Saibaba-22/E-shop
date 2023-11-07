@@ -16,18 +16,12 @@ public class LaptopServiceImpl {
 	@Autowired
 	private LaptopJPA laptopdao;
 	
-	public Laptop findByiLaptop(int id, Laptop laptop) {
-		laptop=laptopdao.findById(id).get();
-		return laptop;
-	}
-
-	
-	public Laptop findbyid(int id, Laptop laptop) {
+	public Laptop findbyid(Long id, Laptop laptop) {
 		laptop=laptopdao.findById(id).get();
 		return laptop;
 	}
 	
-	public void deleteLaptop(int id) {
+	public void deleteLaptop(Long id) {
 		try 
     	{
 			laptopdao.deleteById(id);
@@ -44,7 +38,7 @@ public class LaptopServiceImpl {
 		return alllaptop;
 	}
 	
-	public Laptop updateLaptop(int id,Laptop user) {
+	public Laptop updateLaptop(Long id,Laptop user) {
 		try {
 			Laptop uplaptop=laptopdao.findById(id).get();
 			if(user.getLaptop_Name()!=null){

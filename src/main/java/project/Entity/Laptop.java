@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -16,7 +18,7 @@ public class Laptop {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Laptop-ID")	
-	private String Laptop_ID;
+	private Long Laptop_ID;
 	
 	@Column(name="Laptop-Name")
 	private String Laptop_Name;
@@ -25,22 +27,25 @@ public class Laptop {
 	private String Description;
 	
 	@Column(name="Laptop-Cost")
-	private String Laptop_Cost;
+	private Long Laptop_Cost;
+		
 	public Laptop() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Laptop(String laptop_ID, String laptop_Name, String description, String laptop_Cost) {
+	public Laptop(Long laptop_ID, String laptop_Name, String description, Long laptop_Cost) {
 		super();
 		Laptop_ID = laptop_ID;
 		Laptop_Name = laptop_Name;
 		Description = description;
 		Laptop_Cost = laptop_Cost;
 	}
-	public String getLaptop_ID() {
+	
+	
+	public Long getLaptop_ID() {
 		return Laptop_ID;
 	}
-	public void setLaptop_ID(String laptop_ID) {
+	public void setLaptop_ID(Long laptop_ID) {
 		Laptop_ID = laptop_ID;
 	}
 	public String getLaptop_Name() {
@@ -55,10 +60,10 @@ public class Laptop {
 	public void setDescription(String description) {
 		Description = description;
 	}
-	public String getLaptop_Cost() {
+	public Long getLaptop_Cost() {
 		return Laptop_Cost;
 	}
-	public void setLaptop_Cost(String laptop_Cost) {
+	public void setLaptop_Cost(Long laptop_Cost) {
 		Laptop_Cost = laptop_Cost;
 	}
 	

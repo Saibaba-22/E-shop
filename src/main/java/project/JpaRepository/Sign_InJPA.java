@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import project.Entity.Sign_In;
 
 @Repository
-public interface Sign_InJPA extends JpaRepository<Sign_In, Integer>{
+public interface Sign_InJPA extends JpaRepository<Sign_In, Long>{
 
 }

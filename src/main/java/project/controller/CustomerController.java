@@ -32,17 +32,17 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/Customer/{id}")
-	Customer findByid(@PathVariable int id,Customer user) {
+	Customer findByid(@PathVariable Long id,Customer user) {
 		return Customerervice.findByid(id, user);
 	}
 	
 	@PutMapping("/updateuser/{id}")
-	Customer updateCustomer(@PathVariable int id,@RequestBody Customer user) {
+	Customer updateCustomer(@PathVariable Long id,@RequestBody Customer user) {
 		return Customerervice.updateCustomer(id, user);
 	}
 	
 	@DeleteMapping("/user/{id}")
-	public void  deleteUser(@PathVariable int id) {
+	public void  deleteUser(@PathVariable Long id) {
 		Customerervice.deleteUser(id);
 	}
 

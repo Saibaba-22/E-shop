@@ -16,12 +16,12 @@ public class CartServiceImpl {
 	@Autowired
 	private CartJPA cartdao;
 	
-	public Cart findByid(int id, Cart cart) {
+	public Cart findByid(Long id, Cart cart) {
 		cart=cartdao.findById(id).get();
 		return cart;
 	}
 	
-	public Cart updateUsers(int id, Cart cart) {
+	public Cart updateUsers(Long id, Cart cart) {
 		try {
 			Cart upcart=cartdao.findById(id).get();
 			if(upcart.getProduct_ID()!=null) {
@@ -43,7 +43,7 @@ public class CartServiceImpl {
 			}
 	}
 
-	public void deleteCart(int id) {
+	public void deleteCart(Long id) {
 		try 
     	{
 			cartdao.deleteById(id);

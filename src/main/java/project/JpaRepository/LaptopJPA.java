@@ -8,6 +8,6 @@ import project.Entity.Laptop;
 
 
 @Repository
-public interface LaptopJPA extends JpaRepository<Laptop, Integer>{
+public interface LaptopJPA extends JpaRepository<Laptop, Long>{
 
 }

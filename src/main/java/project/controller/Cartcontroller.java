@@ -26,17 +26,17 @@ public class Cartcontroller {
 	}
 	
 	@GetMapping("/cart/{id}")
-	public Cart findByid(@PathVariable int id,Cart user) {
+	public Cart findByid(@PathVariable Long id,Cart user) {
 		return cartservice.findByid(id, user);
 	}
 	
 	@PutMapping("/updatecart/{id}")
-	public Cart updateCart(@PathVariable int id,@RequestBody Cart user) {
+	public Cart updateCart(@PathVariable Long id,@RequestBody Cart user) {
 		return cartservice.updateUsers(id, user);
 	}
 	
 	@DeleteMapping("/cart/{id}")
-	public void  deleteCart(@PathVariable int id) {
+	public void  deleteCart(@PathVariable Long id) {
 		cartservice.deleteCart(id);
 	}
 	

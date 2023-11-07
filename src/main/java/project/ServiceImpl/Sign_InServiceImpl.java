@@ -16,28 +16,13 @@ public class Sign_InServiceImpl {
 	@Autowired
 	private Sign_InJPA signindao;
 	
-	public Sign_In findByid(int id, Sign_In user) {
+	public Sign_In findByid(Long id, Sign_In user) {
 		user=signindao.findById(id).get();
 		return user;
 	}
 	
 //	
-	public Sign_In updateUsers(int id,Sign_In user) {
-		try {
-			Sign_In upsignin=signindao.findById(id).get();
-			if(upsignin.getUserName()!=null) {
-				upsignin.setUserName(user.getUserName());
-			}
-			if(upsignin.getPassword()!=null) {
-				upsignin.setPassword(user.getPassword());
-				}
-			signindao.save(upsignin);
-			return upsignin;
-			}catch(Exception e) {
-				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-			}
-	}
-	public void deleteSign_in(int id) {
+	public void deleteSign_in(Long id) {
 		try 
     	{
 			signindao.deleteById(id);
@@ -55,7 +40,7 @@ public class Sign_InServiceImpl {
 	}
 
 	
-	public void deleteUser(int id) {
+	public void deleteUser(Long id) {
 		try 
     	{
 			signindao.existsById(id);

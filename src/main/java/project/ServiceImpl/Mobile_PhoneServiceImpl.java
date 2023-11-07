@@ -21,7 +21,7 @@ public class Mobile_PhoneServiceImpl {
 		return nmobile;
 	}
 	
-	public String deleteMobile_Phone(int id) {
+	public String deleteMobile_Phone(Long id) {
 		try 
     	{
 			phonedao.deleteById(id);
@@ -33,12 +33,12 @@ public class Mobile_PhoneServiceImpl {
     	}
 	}
 
-	public Mobile_Phone findByid(int id,Mobile_Phone mobile) {
+	public Mobile_Phone findByid(Long id,Mobile_Phone mobile) {
 		mobile=phonedao.findById(id).get();
 		return mobile;
 	}
 	
-	public Mobile_Phone updateMobile_Phone(int id,Mobile_Phone mobile) {
+	public Mobile_Phone updateMobile_Phone(Long id,Mobile_Phone mobile) {
 		try {
 			Mobile_Phone upphone=phonedao.findById(id).get();
 			if(mobile.getMobile_Name()!=null){

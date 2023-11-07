@@ -20,12 +20,12 @@ public class CustomerServiceImpl {
 	return user;
 	}
 
-	public Customer findByid(int id, Customer user) {
+	public Customer findByid(Long id, Customer user) {
 		user=userdao.findById(id).get();
 		return user;
 	}
 
-	public Customer updateCustomer(int id, Customer user) {
+	public Customer updateCustomer(Long id, Customer user) {
 		try {
 			Customer upuser=userdao.findById(id).get();
 			if(user.getMobile_Number()!=null){
@@ -53,7 +53,7 @@ public class CustomerServiceImpl {
 			}
 	}
 
-	public void deleteUser(int id) {
+	public void deleteUser(Long id) {
 		try 
     	{
 			userdao.deleteById(id);

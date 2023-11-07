@@ -7,9 +7,9 @@ import project.Entity.Mobile_Phone;
 
 public interface Mobile_PhoneRepository {
 	public List<Mobile_Phone> findAllmobiles(Mobile_Phone mobile);
-	public Mobile_Phone findByid(int id,Mobile_Phone mobile);
-	public Mobile_Phone updateMobile_Phone(int id,Mobile_Phone mobile);
-	public String deleteMobile_Phone(int id);
+	public Mobile_Phone findByid(Long id,Mobile_Phone mobile);
+	public Mobile_Phone updateMobile_Phone(Long id,Mobile_Phone mobile);
+	public String deleteMobile_Phone(Long id);
 	public Mobile_Phone addphone(Mobile_Phone phone);
 }
 

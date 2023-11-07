@@ -7,6 +7,6 @@ import project.Entity.Customer;
 
 
 @Repository
-public interface CustomerJpa extends JpaRepository<Customer, Integer>{
+public interface CustomerJpa extends JpaRepository<Customer, Long>{
 
 }

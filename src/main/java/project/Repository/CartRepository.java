@@ -7,9 +7,9 @@ import project.Entity.Cart;
 
 public interface CartRepository {
 	public List<Cart> findAllUsers(Cart user);
-	public Cart findByid(int id,Cart user);
-	public Cart updateCart(int id,Cart user);
-	public void  deleteCart(int id);
+	public Cart findByid(Long id,Cart user);
+	public Cart updateCart(Long id,Cart user);
+	public void  deleteCart(Long id);
 	public Cart addcart(Cart cart);
 }
 

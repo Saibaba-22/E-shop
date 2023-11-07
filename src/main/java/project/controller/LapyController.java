@@ -25,17 +25,17 @@ public class LapyController {
 	}
 	
 	@GetMapping("/lapy/{id}")
-	public Laptop findByid(@PathVariable int id,Laptop user) {
+	public Laptop findByid(@PathVariable Long id,Laptop user) {
 		return laptopservice.findbyid(id, user);
 	}
 	
 	@PutMapping("/updatelapy/{id}")
-	public Laptop updateLaptop(@PathVariable int id,@RequestBody Laptop user) {
+	public Laptop updateLaptop(@PathVariable Long id,@RequestBody Laptop user) {
 		return laptopservice.updateLaptop(id, user);
 	}
 	
 	@DeleteMapping("/laptop/{id}")
-	public void  deleteLaptop(@PathVariable int id) {
+	public void  deleteLaptop(@PathVariable Long id) {
 		laptopservice.deleteLaptop(id);
 	}
 	

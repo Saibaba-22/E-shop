@@ -7,6 +7,6 @@ import project.Entity.Cart;
 
 
 @Repository
-public interface CartJPA extends JpaRepository<Cart, Integer>{
+public interface CartJPA extends JpaRepository<Cart, Long>{
 
 }

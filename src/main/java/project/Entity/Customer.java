@@ -1,7 +1,7 @@
 package project.Entity;
 
-
 import java.util.Date;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -10,6 +10,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -24,14 +28,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Customer-user")
+@Table(name="Customeruser")
+@Inheritance
 public class Customer {
-
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Customer-ID")	
-	private String Customer_ID;
+	private Long Customer_ID;
 
 	@Column(name="First-Name", length = 10)
 	private String First_Name;
@@ -53,20 +57,10 @@ public class Customer {
 	
 	@Column(name="Gender" , length=6)
 	private String Gender;
-	
-	@Column(name="User-Name", length=15)
-	private String Username;
-	
-	@Column(name="Password", length=20)
-	private String Password;
-
-	@JsonIgnore
-	@OneToOne
-	private Sign_In signin;
-	
-	public Customer(String customer_ID, String first_Name, String last_Name, String mobile_Number, String email_ID,
+		
+	public Customer(Long customer_ID2, String first_Name, String last_Name, String mobile_Number, String email_ID,
 			String address, Date date_of_Birth, String gender, String username, String password) {
-		Customer_ID = customer_ID;
+		Customer_ID = customer_ID2;
 		First_Name = first_Name;
 		Last_Name = last_Name;
 		Mobile_Number = mobile_Number;
@@ -74,17 +68,15 @@ public class Customer {
 		Address = address;
 		Date_of_Birth = date_of_Birth;
 		Gender = gender;
-		Username = username;
-		Password = password;
+
 	}
 
-
-
-	public String getCustomer_ID() {
+	
+	public Long getCustomer_ID() {
 		return Customer_ID;
 	}
 
-	public void setCustomer_ID(String customer_ID) {
+	public void setCustomer_ID(Long customer_ID) {
 		Customer_ID = customer_ID;
 	}
 
@@ -143,6 +135,14 @@ public class Customer {
 	public void setGender(String gender) {
 		Gender = gender;
 	}
+		
+}
+
+
+/* 
+
+@Column(name="UserName", length=15)
+private String Username;
 
 	public String getUsername() {
 		return Username;
@@ -152,15 +152,4 @@ public class Customer {
 		Username = username;
 	}
 
-	public String getPassword() {
-		return Password;
-	}
-
-	public void setPassword(String password) {
-		Password = password;
-	}
-	
-	
-}
-
-
+*/

@@ -8,6 +8,6 @@ import project.Entity.Mobile_Phone;
 
 
 @Repository
-public interface Mobile_PhoneJPA extends JpaRepository<Mobile_Phone, Integer>{
+public interface Mobile_PhoneJPA extends JpaRepository<Mobile_Phone, Long>{
 
 }

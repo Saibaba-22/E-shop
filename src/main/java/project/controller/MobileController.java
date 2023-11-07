@@ -25,17 +25,17 @@ public class MobileController {
 	}
 	
 	@GetMapping("/phone/{id}")
-	public Mobile_Phone findByid(@PathVariable int id,Mobile_Phone mobile) {
+	public Mobile_Phone findByid(@PathVariable Long id,Mobile_Phone mobile) {
 		return phoneservice.findByid(id, mobile);
 	}
 	
 	@PutMapping("/updatephone/{id}")
-	public Mobile_Phone updateMobile_Phone(@PathVariable int id,@RequestBody Mobile_Phone mobile) {
+	public Mobile_Phone updateMobile_Phone(@PathVariable Long id,@RequestBody Mobile_Phone mobile) {
 		return phoneservice.updateMobile_Phone(id, mobile);
 	}
 	
 	@DeleteMapping("/Phone/{id}")
-	public String deleteMobile_Phone(@PathVariable int id) {
+	public String deleteMobile_Phone(@PathVariable Long id) {
 		return phoneservice.deleteMobile_Phone(id);
 	}
 	
