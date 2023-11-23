@@ -3,11 +3,11 @@ package project.JpaRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import project.Entity.Mobile_Phone;
-
-
+import project.Entity.SignIn;
 
 @Repository
-public interface Mobile_PhoneJPA extends JpaRepository<Mobile_Phone, Long>{
+public interface SignInJPA extends JpaRepository<SignIn, Long>{
+
+	SignIn findByUserNameAndPassword(String UserName, String password);
 
 }

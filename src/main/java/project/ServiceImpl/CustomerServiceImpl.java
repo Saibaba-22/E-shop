@@ -14,10 +14,10 @@ import project.JpaRepository.CustomerJpa;
 public class CustomerServiceImpl {
 	@Autowired
 	private CustomerJpa userdao;
-	
-	public Customer signup(Customer user) {
-	userdao.save(user);
-	return user;
+
+	public List<Customer> findAllCustomer(Customer user) {
+		List<Customer> Customer=userdao.findAll();
+		return Customer;
 	}
 
 	public Customer findByid(Long id, Customer user) {
@@ -25,26 +25,28 @@ public class CustomerServiceImpl {
 		return user;
 	}
 
+	public Customer addCustomer(Customer user) {
+		userdao.save(user);
+		return user;
+	}
+
 	public Customer updateCustomer(Long id, Customer user) {
 		try {
 			Customer upuser=userdao.findById(id).get();
-			if(user.getMobile_Number()!=null){
-				upuser.setMobile_Number(user.getMobile_Number());
+			if(user.getFirstName()!=null){
+				upuser.setMobileNumber(user.getMobileNumber());
 			}
 			if(user.getAddress()!=null){
 				upuser.setAddress(user.getAddress());
 			}
-			if(user.getDate_of_Birth()!=null) {
-				upuser.setDate_of_Birth(user.getDate_of_Birth());
+			if(user.getDateofBirth()!=null) {
+				upuser.setDateofBirth(user.getDateofBirth());
 			}
-			if(user.getLast_Name()!=null) {
-				upuser.setLast_Name(user.getLast_Name());
-				}
-			if(user.getFirst_Name()!=null) {
-				upuser.setFirst_Name(user.getFirst_Name());
+			if(user.getLastName()!=null){
+				upuser.setLastName(user.getLastName());
 			}
-			if(user.getGender()!=null) {
-				upuser.setGender(user.getGender());
+			if(user.getFirstName()!=null) {
+				upuser.setFirstName(user.getFirstName());
 			}
 			userdao.save(upuser);
 			return upuser;
@@ -53,22 +55,17 @@ public class CustomerServiceImpl {
 			}
 	}
 
-	public void deleteUser(Long id) {
+	public Customer deleteUser(Long id) {
 		try 
     	{
+			Customer user=userdao.findById(id).get();
 			userdao.deleteById(id);
-    		throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+    		return user;
     	}
     	catch(Exception e)
     	{
     		throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     	}
 	}
-
-	public List<Customer> findAllCustomer(Customer user) {
-		List<Customer> Customer=userdao.findAll();
-		return Customer;
-	}
-
 
 }

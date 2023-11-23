@@ -21,35 +21,36 @@ public class LaptopServiceImpl {
 		return laptop;
 	}
 	
-	public void deleteLaptop(Long id) {
+	public List<Laptop> findAllUsers() {
+		List<Laptop> alllaptop=laptopdao.findAll();
+		return alllaptop;
+	}
+	
+	public Laptop deleteLaptop(Long id) {
 		try 
-    	{
+    	{	
+			Laptop laptop=laptopdao.findById(id).get();
 			laptopdao.deleteById(id);
-    		throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+    		return laptop;
     	}
     	catch(Exception e)
     	{
     		throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     	}
 	}
-
-	public List<Laptop> findAllUsers() {
-		List<Laptop> alllaptop=laptopdao.findAll();
-		return alllaptop;
-	}
 	
 	public Laptop updateLaptop(Long id,Laptop user) {
 		try {
 			Laptop uplaptop=laptopdao.findById(id).get();
-			if(user.getLaptop_Name()!=null){
-				uplaptop.setLaptop_Name(user.getLaptop_Name());
+			if(user.getLaptopName()!=null){
+				uplaptop.setLaptopName(user.getLaptopName());
 			}
 			
 			if(user.getDescription()!=null) {
 				uplaptop.setDescription(user.getDescription());
 			}
-			if(user.getLaptop_Cost()!=null) {
-				uplaptop.setLaptop_Cost(user.getLaptop_Cost());
+			if(user.getLaptopCost()!=null) {
+				uplaptop.setLaptopCost(user.getLaptopCost());
 			}
 			laptopdao.save(uplaptop);
 			return uplaptop;

@@ -1,0 +1,24 @@
+package project.Exception;
+
+import java.util.Date;
+
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
+
+import project.Exception.*;
+import project.Exception.*;
+
+public class GlobalException 
+{
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundExHandling(ConfigDataResourceNotFoundException exception,
+			WebRequest request)
+	{
+		ErrorDetails errorDetails=new ErrorDetails(new Date(), 
+				exception.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails,HttpStatus.NOT_FOUND);
+	}
+}

@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
@@ -20,7 +22,7 @@ import lombok.Data;
 public class Cart {
 	
 	@Id
-	@Column(name="Cart-ID")	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long Cart_ID;
 	
 	@Column(name="UserID")
@@ -53,7 +55,7 @@ public class Cart {
 	@JoinTable(
 			joinColumns =@JoinColumn(name="cart_id"),
 			inverseJoinColumns=@JoinColumn(name="mobile_id"))
-	private Set<Mobile_Phone> mobiles;
+	private Set<Mobile> mobiles;
 	
 	@JsonIgnore
 	@OneToOne

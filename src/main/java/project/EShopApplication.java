@@ -8,6 +8,7 @@ public class EShopApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EShopApplication.class, args);
+		System.out.println("Welcome to the $@! Laptop and mobile phone Mart.");
 	}
 }
 
